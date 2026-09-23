@@ -2,12 +2,11 @@ import type { APIRoute } from 'astro';
 import { SITE_URL } from '../config/site';
 
 export const GET: APIRoute = () => {
-  const sitemapLine = SITE_URL ? `Sitemap: ${SITE_URL.replace(/\/$/, '')}/sitemap.xml` : '';
-  const robotsTxt = `
-User-agent: *
+  const domain = (SITE_URL || 'https://sanmao.cfd').replace(/\/$/, '');
+  const robotsTxt = `User-agent: *
 Allow: /
-${sitemapLine}
-`.trim();
+
+Sitemap: ${domain}/sitemap.xml`;
 
   return new Response(robotsTxt, {
     headers: {

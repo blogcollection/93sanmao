@@ -1,4 +1,4 @@
-export const SITE_URL = "";
+export const SITE_URL = "https://sanmao.cfd";
 export const SUPPORT_EMAIL = "";
 export const LOGIN_URL = "https://yinxingren1.invisibleaff.com/#/register?code=Gcp1CRso";
 export const REGISTER_URL = "https://yinxingren1.invisibleaff.com/#/register?code=Gcp1CRso";
