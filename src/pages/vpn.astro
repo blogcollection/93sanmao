@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SecurityComponent from '../components/Security.astro';
+import PerformanceComponent from '../components/Performance.astro';
+---
+
+<BaseLayout 
+  title="三毛 VPN 产品介绍｜SANMAO"
+  description="了解三毛 VPN（SANMAO）的产品功能、网络连接方式、客户端支持与安全保护机制。"
+>
+  <div class="bg-[#F5F5F7] py-16 md:py-24 border-b border-black/10">
+    <div class="max-w-[1200px] mx-auto px-6 text-center space-y-4">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">PRODUCT OVERVIEW</div>
+      <h1 class="text-4xl sm:text-6xl font-bold text-sanmao-textPrimary tracking-tight">
+        三毛 VPN
+      </h1>
+      <p class="max-w-[640px] mx-auto text-base sm:text-lg text-sanmao-textSecondary leading-relaxed">
+        一个更简单的全球网络连接方式。
+      </p>
+    </div>
+  </div>
+
+  <SecurityComponent />
+  <PerformanceComponent />
+</BaseLayout>

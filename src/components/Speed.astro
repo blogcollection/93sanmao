@@ -1,0 +1,100 @@
+---
+---
+
+<section class="w-full bg-white py-24 md:py-36 border-b border-black/[0.08]">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Editorial Typography -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="text-xs font-semibold tracking-widest text-brand uppercase">速度 SPEED</div>
+        
+        <h2 class="text-4xl sm:text-6xl font-semibold text-sanmao-textPrimary leading-[1.05] tracking-tight">
+          快，<br />
+          不是偶尔很快。
+        </h2>
+
+        <p class="max-w-[560px] text-lg sm:text-xl text-sanmao-textSecondary leading-relaxed pt-2">
+          真正影响日常使用体验的，不是单次测速截图里的瞬间峰值，而是长时间维度的超低延迟、稳定性与持续无丢包传输能力。
+        </p>
+
+        <div class="pt-4 flex items-center gap-6 text-sm text-sanmao-textSecondary">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand"></span>
+            <span>低延迟专线</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand"></span>
+            <span>0.1% 丢包率控制</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Massive Latency Visual (No standard Card wrapper) -->
+      <div class="lg:col-span-6 flex flex-col justify-center">
+        <div class="relative py-8">
+          <!-- Latency Display -->
+          <div class="flex items-baseline gap-4 mb-6">
+            <span class="text-7xl sm:text-9xl font-bold tracking-tighter text-sanmao-textPrimary leading-none">
+              28
+            </span>
+            <span class="text-2xl sm:text-3xl font-medium text-brand uppercase tracking-wider">
+              ms
+            </span>
+          </div>
+
+          <!-- Smooth Minimal Curve Line SVG -->
+          <div class="relative w-full h-[140px] border-b border-black/10">
+            <svg class="w-full h-full overflow-visible" viewBox="0 0 500 120" fill="none" preserveAspectRatio="none">
+              <!-- Grid Horizontal Guide Lines -->
+              <line x1="0" y1="30" x2="500" y2="30" stroke="rgba(0,0,0,0.04)" stroke-dasharray="4 4" />
+              <line x1="0" y1="70" x2="500" y2="70" stroke="rgba(0,0,0,0.04)" stroke-dasharray="4 4" />
+              
+              <!-- Smooth Curve -->
+              <path 
+                d="M 0 75 Q 80 50 160 65 T 320 40 T 500 55" 
+                fill="none" 
+                stroke="#00A88F" 
+                stroke-width="3.5" 
+                stroke-linecap="round"
+              />
+              
+              <!-- Gradient Area Under Curve -->
+              <path 
+                d="M 0 75 Q 80 50 160 65 T 320 40 T 500 55 L 500 120 L 0 120 Z" 
+                fill="url(#speed-gradient)" 
+                opacity="0.15" 
+              />
+
+              <defs>
+                <linearGradient id="speed-gradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#00A88F" />
+                  <stop offset="100%" stop-color="#00A88F" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+
+              <!-- Node Point Pulse -->
+              <circle cx="500" cy="55" r="5" fill="#00A88F" />
+            </svg>
+
+            <!-- Data Labels along curve -->
+            <div class="flex justify-between text-xs font-mono text-sanmao-textSecondary mt-4">
+              <span>24ms</span>
+              <span>27ms</span>
+              <span>26ms</span>
+              <span>29ms</span>
+              <span>28ms</span>
+              <span class="font-bold text-brand">27ms (当前)</span>
+            </div>
+          </div>
+
+          <!-- Required Label -->
+          <div class="mt-6 text-xs text-sanmao-textSecondary opacity-70">
+            Example latency visualization / 示例测速可视化
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DevicesComponent from '../components/Devices.astro';
+import { DOWNLOAD_URLS } from '../config/site';
+
+const downloads = [
+  { id: 'windows', os: 'Windows', version: 'v2.4.0', link: DOWNLOAD_URLS.windows, req: 'Windows 10 / 11 64-bit' },
+  { id: 'mac', os: 'macOS', version: 'v2.4.0', link: DOWNLOAD_URLS.mac, req: 'macOS 11.0+ (Apple Silicon & Intel)' },
+  { id: 'ios', os: 'iOS / iPadOS', version: 'v2.4.0', link: DOWNLOAD_URLS.ios, req: 'iOS 14.0 或更高版本' },
+  { id: 'android', os: 'Android', version: 'v2.4.0', link: DOWNLOAD_URLS.android, req: 'Android 8.0 或更高版本' },
+  { id: 'linux', os: 'Linux CLI', version: 'v2.4.0', link: DOWNLOAD_URLS.linux, req: 'Ubuntu / Debian / Arch / Fedora' },
+];
+---
+
+<BaseLayout 
+  title="客户端下载｜三毛 VPN"
+  description="下载适用于 Windows、macOS、iOS、Android 及 Linux 的三毛 VPN 客户端。"
+>
+  <div class="bg-[#F5F5F7] py-16 md:py-24 border-b border-black/10">
+    <div class="max-w-[1200px] mx-auto px-6 text-center space-y-4">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">DOWNLOAD</div>
+      <h1 class="text-4xl sm:text-6xl font-bold text-sanmao-textPrimary tracking-tight">
+        下载三毛
+      </h1>
+      <p class="max-w-[600px] mx-auto text-base sm:text-lg text-sanmao-textSecondary">
+        在你的常用设备上安装三毛 VPN 客户端。
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-[1100px] mx-auto px-6 py-16 md:py-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {downloads.map((item) => (
+        <div id={item.id} class="p-8 rounded-2xl bg-white border border-black/10 flex flex-col justify-between space-y-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <h2 class="text-2xl font-bold text-sanmao-textPrimary">{item.os}</h2>
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-[#F5F5F7] text-sanmao-textSecondary">{item.version}</span>
+            </div>
+            <p class="text-xs text-sanmao-textSecondary">系统要求: {item.req}</p>
+          </div>
+
+          <div class="pt-4 border-t border-black/5 space-y-2">
+            <a 
+              href={item.link} 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full py-3.5 rounded-full bg-sanmao-textPrimary hover:bg-brand text-white text-center text-sm font-semibold transition-colors shadow-sm"
+            >
+              下载 {item.os} 客户端
+            </a>
+            <div class="text-[11px] text-center text-sanmao-textSecondary">
+              点击进入注册与客户端下载通道
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <DevicesComponent />
+</BaseLayout>

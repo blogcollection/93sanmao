@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SUPPORT_EMAIL, REGISTER_URL } from '../config/site';
+import { pricingConfig } from '../data/pricing';
+---
+
+<BaseLayout 
+  title="服务条款与退款保障规程｜三毛 VPN"
+  description="三毛 VPN 服务使用条款、合规规范与多套餐无条件退款保障规程。"
+>
+  <!-- Header -->
+  <div class="bg-[#F5F5F7] py-16 md:py-24 border-b border-black/10">
+    <div class="max-w-[900px] mx-auto px-6 text-center space-y-4">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">TERMS OF SERVICE & REFUND POLICY</div>
+      <h1 class="text-4xl sm:text-6xl font-bold text-sanmao-textPrimary tracking-tight">
+        服务条款与退款保障规程
+      </h1>
+      <p class="text-base sm:text-lg text-sanmao-textSecondary max-w-[640px] mx-auto">
+        明确的服务合规要求与清晰无忧的退款保障机制。
+      </p>
+      <div class="text-xs font-mono text-sanmao-textSecondary pt-2">
+        最近更新生效日期：2026 年 9 月
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="max-w-[800px] mx-auto px-6 py-16 md:py-24 space-y-12">
+    
+    <!-- Section 1: Terms Acceptance -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        1. 条款接受与适用范围
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        欢迎使用三毛 VPN。注册账号、购买订阅或使用我们的客户端软件，即表示您已充分阅读并同意接受本服务条款的全部内容。如果您不同意本条款的任何部分，请停止使用我们的服务。
+      </p>
+    </section>
+
+    <!-- Section 2: Acceptable Use Policy -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        2. 合理使用与合规规范
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        三毛 VPN 旨在为用户提供合法、安全的加密连接服务。用户在使用服务时须遵守当地法律法规，并严格禁止以下行为：
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-base text-sanmao-textSecondary">
+        <li>利用网络传输任何违法、侵权、欺诈或有害内容；</li>
+        <li>发起 DDoS 拒绝服务攻击、网络扫描或恶意破解他人系统；</li>
+        <li>未经授权批量抓取数据、滥用服务器资源或进行垃圾邮件群发；</li>
+        <li>私自分享或出借付费账号给超额设备滥用使用。</li>
+      </ul>
+    </section>
+
+    <!-- Section 3: Subscriptions & Billing -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        3. 套餐订阅与计费规则
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        三毛 VPN 提供按月、每 6 个月及按年等灵活计费订阅方案。所有价格与套餐配额均公开透明标示。订阅到期后若未手动续费，服务将自动暂停，不会产生隐藏扣费。
+      </p>
+    </section>
+
+    <!-- Section 4: Refund Policy (#refund) -->
+    <section id="refund" class="space-y-4 scroll-mt-24">
+      <div class="p-6 rounded-2xl bg-[#F5F5F7] border border-black/10 space-y-4">
+        <div class="text-xs font-semibold tracking-widest text-brand uppercase">MONEY-BACK GUARANTEE</div>
+        <h2 class="text-2xl font-bold text-sanmao-textPrimary">
+          4. 退款保障规程 (Refund Policy)
+        </h2>
+        <p class="text-sm sm:text-base text-sanmao-textSecondary leading-relaxed">
+          为了让您无后顾之忧地体验三毛 VPN 的连接品质，我们为不同订阅套餐提供明确的<strong>无条件退款保障规程</strong>：
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          {pricingConfig.plans.map((plan) => (
+            <div class="p-4 rounded-xl bg-white border border-black/10 space-y-2">
+              <div class="text-xs font-bold text-sanmao-textPrimary">{plan.name}</div>
+              <div class="text-xs text-brand font-semibold">{plan.refundPolicy}</div>
+              <div class="text-[11px] text-sanmao-textSecondary">价格: {plan.pricePerMonth}/月</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="space-y-2 pt-2">
+          <h3 class="text-sm font-bold text-sanmao-textPrimary">退款申请流程：</h3>
+          <ol class="list-decimal pl-5 space-y-1 text-xs sm:text-sm text-sanmao-textSecondary">
+            <li>在退款保障有效期内（自购买之日起算），通过官方支持通道联系客服；</li>
+            <li>提供您的注册邮箱与订单编号；</li>
+            <li>客服团队将在 24 小时内确认并处理全额退款，资金将原路返回您的支付通道。</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Availability & Disclaimer -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        5. 服务可用性与免责声明
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        我们致力于维持 99.9% 以上的服务在线可用率。但在常规例行维护、上游网络运营商故障或不可抗力因素下，可能发生短暂的连接波动。三毛 VPN 不对因意外中断导致的非直接损失承担超出购买订阅金额以外的延伸责任。
+      </p>
+    </section>
+
+    <!-- Section 6: Modifications & Contact -->
+    <section class="space-y-4 pt-4 border-t border-black/10">
+      <h2 class="text-xl font-bold text-sanmao-textPrimary">
+        条款咨询与支持
+      </h2>
+      <p class="text-sm text-sanmao-textSecondary leading-relaxed">
+        如果您对服务条款或退款保障有任何疑问，请随时提交工单或联系我们的支持邮箱。
+      </p>
+      {SUPPORT_EMAIL && (
+        <div class="pt-2">
+          <a href={`mailto:${SUPPORT_EMAIL}`} class="inline-block px-6 py-3 rounded-full bg-sanmao-textPrimary text-white text-xs font-semibold hover:bg-brand transition-colors">
+            发送邮件 ({SUPPORT_EMAIL})
+          </a>
+        </div>
+      )}
+    </section>
+
+  </div>
+</BaseLayout>

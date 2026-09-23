@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PricingComponent from '../components/Pricing.astro';
+import FAQComponent from '../components/FAQ.astro';
+import TrustComponent from '../components/Trust.astro';
+---
+
+<BaseLayout 
+  title="套餐与价格｜三毛 VPN"
+  description="查看三毛 VPN 的订阅套餐与价格选项。"
+>
+  <div class="bg-[#F5F5F7] py-12 md:py-20 border-b border-black/10">
+    <div class="max-w-[1200px] mx-auto px-6 text-center space-y-4">
+      <h1 class="text-4xl sm:text-6xl font-bold text-sanmao-textPrimary tracking-tight">
+        套餐与价格
+      </h1>
+      <p class="max-w-[600px] mx-auto text-base sm:text-lg text-sanmao-textSecondary">
+        简单的价格，没有复杂选择。
+      </p>
+    </div>
+  </div>
+
+  <PricingComponent />
+  <TrustComponent />
+  <FAQComponent />
+</BaseLayout>

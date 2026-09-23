@@ -1,0 +1,42 @@
+---
+import { faqList } from '../data/faq';
+---
+
+<section id="faq" class="w-full bg-[#F5F5F7] py-24 md:py-36 border-b border-black/[0.08]">
+  <div class="max-w-[900px] mx-auto px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center space-y-4 mb-16">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">FREQUENTLY ASKED QUESTIONS</div>
+      <h2 class="text-3xl sm:text-5xl font-semibold text-sanmao-textPrimary tracking-tight">
+        你可能想知道。
+      </h2>
+      <p class="text-base text-sanmao-textSecondary">
+        了解三毛 VPN 的常见使用问题与服务规则。
+      </p>
+    </div>
+
+    <!-- Accordion Container (Pure Border Bottom, No Cards) -->
+    <div class="divide-y divide-black/10 border-t border-b border-black/10">
+      {faqList.map((faq, index) => (
+        <details class="group py-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="flex items-center justify-between font-semibold text-lg sm:text-xl text-sanmao-textPrimary hover:text-brand transition-colors">
+            <span class="pr-6">{faq.question}</span>
+            <span class="w-6 h-6 rounded-full bg-black/5 flex items-center justify-center text-sm text-sanmao-textSecondary group-open:rotate-180 transition-transform">
+              ↓
+            </span>
+          </summary>
+          <div class="mt-4 text-sm sm:text-base text-sanmao-textSecondary leading-relaxed pr-8 space-y-2">
+            <p>{faq.answer}</p>
+            {faq.statusNotice && (
+              <span class="inline-block text-xs font-mono px-2 py-0.5 rounded bg-black/5 text-sanmao-textSecondary">
+                {faq.statusNotice}
+              </span>
+            )}
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

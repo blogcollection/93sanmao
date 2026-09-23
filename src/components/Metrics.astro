@@ -1,0 +1,28 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<section class="w-full bg-white border-y border-black/[0.08] py-8 md:py-12">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+      {siteConfig.metrics.map((metric) => (
+        <div class="space-y-1">
+          <div class="text-3xl sm:text-4xl md:text-5xl font-semibold text-sanmao-textPrimary tracking-tight">
+            {metric.value}
+          </div>
+          <div class="text-sm font-medium text-sanmao-textPrimary">
+            {metric.label}
+          </div>
+          <div class="text-xs text-sanmao-textSecondary">
+            {metric.sublabel}
+          </div>
+          {metric.isDemo && (
+            <div class="text-[10px] text-sanmao-textSecondary/60 mt-1">
+              示例数据 / Placeholder
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

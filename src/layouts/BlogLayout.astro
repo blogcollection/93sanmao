@@ -1,0 +1,99 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  date: string;
+  updated?: string;
+  category: string;
+  author: string;
+  keywords: string[];
+}
+
+const { title, description, date, updated, category, author, keywords } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full bg-white text-sanmao-textPrimary antialiased">
+  <head>
+    <SEO 
+      title={`${title} | 三毛 SANMAO 官方安全博客`} 
+      description={description} 
+      type="article"
+      publishedTime={date}
+      modifiedTime={updated || date}
+      author={author}
+      breadcrumbs={[
+        { name: '首页', item: '/' },
+        { name: '博客', item: '/blog' },
+        { name: title, item: Astro.url.pathname },
+      ]}
+    />
+  </head>
+  <body class="min-h-full flex flex-col justify-between selection:bg-brand selection:text-white">
+    <Navbar />
+    
+    <main class="flex-grow py-12 md:py-20 bg-white">
+      <article class="max-w-[760px] mx-auto px-6">
+        
+        <!-- Article Header -->
+        <header class="space-y-6 pb-10 border-b border-black/10">
+          <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-brand">
+            <span class="px-2.5 py-1 rounded-full bg-brand-light text-brand-dark">
+              {category}
+            </span>
+            <span>{date}</span>
+            {updated && <span>• 已更新: {updated}</span>}
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-bold text-sanmao-textPrimary tracking-tight leading-tight">
+            {title}
+          </h1>
+
+          <p class="text-lg text-sanmao-textSecondary leading-relaxed">
+            {description}
+          </p>
+
+          <div class="flex items-center justify-between text-xs text-sanmao-textSecondary pt-2">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full bg-sanmao-textPrimary text-white flex items-center justify-center font-bold text-xs">
+                三
+              </div>
+              <span class="font-medium text-sanmao-textPrimary">{author}</span>
+            </div>
+            
+            <div class="flex items-center gap-1.5 flex-wrap">
+              {keywords.map((kw) => (
+                <span class="px-2 py-0.5 rounded bg-[#F5F5F7] text-sanmao-textSecondary">
+                  #{kw}
+                </span>
+              ))}
+            </div>
+          </div>
+        </header>
+
+        <!-- Article Body with custom article-content styling -->
+        <div class="article-content py-10">
+          <slot />
+        </div>
+
+        <!-- Article Footer Share / Back -->
+        <footer class="pt-10 border-t border-black/10 flex items-center justify-between text-xs sm:text-sm">
+          <a href="/blog" class="font-medium text-brand hover:text-brand-hover transition-colors flex items-center gap-1">
+            ← 返回博客文章列表
+          </a>
+          <a href="/pricing" class="px-5 py-2.5 rounded-full bg-sanmao-textPrimary text-white text-xs font-semibold hover:bg-brand transition-colors">
+            查看三毛方案
+          </a>
+        </footer>
+
+      </article>
+    </main>
+
+    <Footer />
+  </body>
+</html>

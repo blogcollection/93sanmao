@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { REGISTER_URL } from '../config/site';
+---
+
+<BaseLayout 
+  title="关于三毛｜三毛 VPN"
+  description="了解三毛 VPN 的品牌使命、产品理念与简单易用的全球网络连接服务。"
+>
+  <!-- Header -->
+  <div class="bg-[#F5F5F7] py-16 md:py-24 border-b border-black/10">
+    <div class="max-w-[900px] mx-auto px-6 text-center space-y-4">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">ABOUT SANMAO</div>
+      <h1 class="text-4xl sm:text-6xl font-bold text-sanmao-textPrimary tracking-tight">
+        关于三毛
+      </h1>
+      <p class="text-base sm:text-lg text-sanmao-textSecondary max-w-[640px] mx-auto leading-relaxed">
+        简单易用的全球网络连接服务。在电脑、手机和常用设备上快速连接。
+      </p>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="max-w-[800px] mx-auto px-6 py-16 md:py-24 space-y-12">
+    
+    <!-- Section 1: Brand Mission -->
+    <section class="space-y-4">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">OUR MISSION</div>
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        品牌使命：连接全球，更简单
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        三毛 VPN 诞生于对“简单连接”的极致追求。在当今繁复的网络技术面前，我们相信大众消费者需要的不是堆砌复杂术语的工具，而是一个<strong>开箱即用、一键直连、稳定私密</strong>的高品质网络连接服务。
+      </p>
+    </section>
+
+    <!-- Section 2: Core Pillars -->
+    <section class="space-y-6">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        核心优势与产品价值
+      </h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="p-6 rounded-2xl bg-[#F5F5F7] border border-black/10 space-y-2">
+          <h3 class="text-lg font-bold text-sanmao-textPrimary">极简交互体验</h3>
+          <p class="text-xs text-sanmao-textSecondary leading-relaxed">
+            无需手动配置复杂节点参数。简洁直观的客户端设计，在 Windows、macOS、iOS 与 Android 设备上一键开启安全连接。
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#F5F5F7] border border-black/10 space-y-2">
+          <h3 class="text-lg font-bold text-sanmao-textPrimary">智能选路技术</h3>
+          <p class="text-xs text-sanmao-textSecondary leading-relaxed">
+            内置 Smart Connection 自动选择最佳节点，流畅支持网页浏览、高清流媒体播放与日常常用应用访问。
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#F5F5F7] border border-black/10 space-y-2">
+          <h3 class="text-lg font-bold text-sanmao-textPrimary">严格无日志隐私</h3>
+          <p class="text-xs text-sanmao-textSecondary leading-relaxed">
+            恪守数据最小化准则，不记录任何用户的浏览历史、传输内容或 DNS 查询，守护您的个人网络隐私。
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#F5F5F7] border border-black/10 space-y-2">
+          <h3 class="text-lg font-bold text-sanmao-textPrimary">透明服务保障</h3>
+          <p class="text-xs text-sanmao-textSecondary leading-relaxed">
+            提供清晰的退款保障规程与公开的服务状态，无隐性消费，用心服务每一位用户。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Call to Action -->
+    <section class="text-center p-8 sm:p-12 rounded-3xl bg-[#F5F5F7] border border-black/10 space-y-4">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary">
+        开启更简单的全球网络连接
+      </h2>
+      <p class="text-xs sm:text-sm text-sanmao-textSecondary max-w-[480px] mx-auto">
+        随时随地在您的所有常用设备上享受快速、稳定与私密的连接体验。
+      </p>
+      <div class="pt-2">
+        <a 
+          href={REGISTER_URL || '/download'} 
+          class="inline-block px-8 py-3.5 rounded-full bg-sanmao-textPrimary text-white text-xs sm:text-sm font-semibold hover:bg-brand transition-colors shadow-sm"
+        >
+          立即开始使用
+        </a>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

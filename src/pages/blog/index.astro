@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
+);
+---
+
+<BaseLayout 
+  title="VPN 使用指南与网络知识｜三毛博客"
+  description="从 VPN 基础原理、客户端使用，到网络连接与隐私相关知识。"
+>
+  <div class="bg-[#F5F5F7] py-16 md:py-24 border-b border-black/10">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="max-w-[640px] space-y-4">
+        <div class="text-xs font-semibold tracking-widest text-brand uppercase">SANMAO BLOG</div>
+        <h1 class="text-4xl sm:text-6xl font-bold text-sanmao-textPrimary tracking-tight">
+          VPN 指南与网络知识
+        </h1>
+        <p class="text-base sm:text-lg text-sanmao-textSecondary leading-relaxed">
+          从 VPN 基础原理、客户端使用，到网络连接与隐私相关知识。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[1200px] mx-auto px-6 py-16 md:py-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts.map((post) => (
+        <a 
+          href={`/blog/${post.slug}`} 
+          class="group rounded-2xl bg-white border border-black/10 p-6 flex flex-col justify-between hover:border-brand transition-all hover:shadow-lg"
+        >
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs text-sanmao-textSecondary">
+              <span class="px-2.5 py-1 rounded-full bg-brand-light text-brand-dark font-semibold">
+                {post.data.category}
+              </span>
+              <span>{post.data.date}</span>
+            </div>
+
+            <h2 class="text-xl font-semibold text-sanmao-textPrimary group-hover:text-brand transition-colors line-clamp-2">
+              {post.data.title}
+            </h2>
+
+            <p class="text-xs sm:text-sm text-sanmao-textSecondary leading-relaxed line-clamp-3">
+              {post.data.description}
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-black/5 flex items-center justify-between text-xs font-medium text-brand">
+            <span>阅读完整文章</span>
+            <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

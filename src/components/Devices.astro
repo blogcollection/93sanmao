@@ -1,0 +1,87 @@
+---
+const platforms = [
+  { name: 'Windows', type: 'Desktop App' },
+  { name: 'macOS', type: 'Desktop App' },
+  { name: 'Linux', type: 'CLI / GUI' },
+  { name: 'iOS', type: 'Mobile App' },
+  { name: 'Android', type: 'Mobile App' },
+  { name: 'Chrome / Firefox / Edge', type: 'Extension' },
+  { name: 'Router', type: 'Plugin / Firmware' },
+];
+---
+
+<section id="devices" class="w-full bg-black text-white py-24 md:py-36 border-b border-white/10">
+  <div class="max-w-[1200px] mx-auto px-6">
+    
+    <!-- Section Header -->
+    <div class="max-w-[680px] mx-auto text-center space-y-4 mb-16">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">CROSS PLATFORM</div>
+      <h2 class="text-4xl sm:text-6xl font-semibold text-white tracking-tight leading-tight">
+        一个账号。<br />
+        你的所有设备。
+      </h2>
+      <p class="text-base sm:text-lg text-white/70 leading-relaxed">
+        适配主流桌面与移动操作系统。在手机、笔记本电脑与平板电脑上保持一致的轻量使用体验。
+      </p>
+    </div>
+
+    <!-- Generic SVG Device Mockup Stack -->
+    <div class="relative w-full max-w-[900px] mx-auto my-12 py-8 flex items-center justify-center">
+      
+      <!-- Laptop Frame (Generic CSS/SVG) -->
+      <div class="relative w-[340px] sm:w-[540px] md:w-[680px] bg-sanmao-darkSecondary border border-white/15 rounded-t-2xl p-4 md:p-6">
+        <!-- Laptop Screen Header -->
+        <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
+          </div>
+          <div class="text-[11px] font-mono text-white/40">sanmao-client-ui</div>
+        </div>
+
+        <!-- Laptop Screen Content -->
+        <div class="bg-black/90 rounded-xl p-6 border border-white/10 flex items-center justify-between">
+          <div class="space-y-1">
+            <div class="text-xs text-white/50">DESKTOP APP (DEMO)</div>
+            <div class="text-lg font-bold text-white">三毛 SANMAO</div>
+            <div class="text-xs font-mono text-brand">Connected • Tokyo (Demo 35ms)</div>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-brand/20 border border-brand text-brand flex items-center justify-center font-bold text-xs">
+            ON
+          </div>
+        </div>
+        <!-- Laptop Base Notch -->
+        <div class="w-full h-3 bg-white/10 rounded-b-lg mt-4"></div>
+      </div>
+
+      <!-- Overlapping Phone Frame (Generic SVG) -->
+      <div class="absolute right-2 sm:right-12 bottom-0 w-[140px] sm:w-[190px] bg-sanmao-darkSecondary border border-white/20 rounded-[28px] p-3 shadow-2xl z-20">
+        <div class="w-12 h-2 bg-white/20 rounded-full mx-auto mb-3"></div>
+        <div class="bg-black/90 rounded-[20px] p-4 border border-white/10 space-y-3">
+          <div class="text-[10px] text-white/40">MOBILE APP</div>
+          <div class="text-sm font-semibold text-white">Connected</div>
+          <div class="text-[11px] font-mono text-brand">Singapore (Demo)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Platforms Section (PURE TYPOGRAPHY + DIVIDERS, NO CARDS!) -->
+    <div class="max-w-[900px] mx-auto mt-16 pt-10 border-t border-white/15">
+      <div class="text-xs font-semibold tracking-widest text-white/50 uppercase mb-6 text-center">
+        SUPPORTED PLATFORMS
+      </div>
+
+      <div class="divide-y divide-white/10 border-b border-white/10">
+        {platforms.map((platform) => (
+          <div class="py-4 flex items-center justify-between text-sm">
+            <span class="font-semibold text-white">{platform.name}</span>
+            <span class="text-xs font-mono text-white/50">{platform.type}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

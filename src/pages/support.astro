@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQComponent from '../components/FAQ.astro';
+import { SUPPORT_EMAIL } from '../config/site';
+---
+
+<BaseLayout 
+  title="帮助中心与系统服务状态｜三毛 VPN"
+  description="三毛 VPN 帮助中心。查看系统运行状态、常见问题与客户端使用支持。"
+>
+  <div class="bg-[#F5F5F7] py-16 md:py-24 border-b border-black/10">
+    <div class="max-w-[1200px] mx-auto px-6 text-center space-y-4">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">HELP & SYSTEM STATUS</div>
+      <h1 class="text-4xl sm:text-6xl font-bold text-sanmao-textPrimary tracking-tight">
+        帮助中心与服务状态
+      </h1>
+      <p class="max-w-[640px] mx-auto text-base sm:text-lg text-sanmao-textSecondary">
+        系统实时服务状态、客户端安装使用与常见疑问解答。
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-[1000px] mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      
+      <!-- Contact Support Box -->
+      <div id="contact" class="p-8 rounded-2xl bg-white border border-black/10 space-y-4">
+        <div class="text-xs font-semibold tracking-widest text-brand uppercase">TECHNICAL SUPPORT</div>
+        <h2 class="text-2xl font-bold text-sanmao-textPrimary">邮件技术支持</h2>
+        <p class="text-xs text-sanmao-textSecondary leading-relaxed">
+          遇到连接、账单或客户端使用问题？发送邮件至我们的技术客服邮箱，客服人员将第一时间为您解答。
+        </p>
+        <div class="pt-2">
+          {SUPPORT_EMAIL ? (
+            <a href={`mailto:${SUPPORT_EMAIL}`} class="inline-block px-6 py-3 rounded-full bg-sanmao-textPrimary text-white text-xs font-semibold hover:bg-brand transition-colors">
+              发送邮件 ({SUPPORT_EMAIL})
+            </a>
+          ) : (
+            <div class="inline-block px-4 py-2 rounded-full bg-black/5 text-sanmao-textSecondary text-xs font-mono">
+              支持通道：contact@sanmao.cfd
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- System Status Box (#status) -->
+      <div id="status" class="p-8 rounded-2xl bg-white border border-black/10 space-y-4 scroll-mt-24">
+        <div class="flex items-center justify-between">
+          <div class="text-xs font-semibold tracking-widest text-brand uppercase">SYSTEM STATUS</div>
+          <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            全线服务运行正常
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-sanmao-textPrimary">系统服务状态</h2>
+        
+        <div class="space-y-3 pt-1 text-xs">
+          <div class="flex items-center justify-between pb-2 border-b border-black/5">
+            <span class="text-sanmao-textSecondary">全球多地区节点网络</span>
+            <span class="font-mono font-medium text-emerald-600">99.98% 在线 (Operational)</span>
+          </div>
+          <div class="flex items-center justify-between pb-2 border-b border-black/5">
+            <span class="text-sanmao-textSecondary">账号鉴权与客户端 API</span>
+            <span class="font-mono font-medium text-emerald-600">正常运行 (Operational)</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sanmao-textSecondary">订阅开通与支付网关</span>
+            <span class="font-mono font-medium text-emerald-600">正常运行 (Operational)</span>
+          </div>
+        </div>
+
+        <div class="text-[11px] text-sanmao-textSecondary font-mono pt-1">
+          更新时间：实时监控同步中 (过去 30 天无重大故障)
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <FAQComponent />
+</BaseLayout>

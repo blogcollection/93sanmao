@@ -1,0 +1,50 @@
+---
+const trustList = [
+  { title: 'Company Information (公司信息)', href: '/about', status: '已公示 (Active)' },
+  { title: 'Privacy Policy (隐私政策)', href: '/privacy', status: '已生效 (Active)' },
+  { title: 'Terms of Service (服务条款)', href: '/terms', status: '已生效 (Active)' },
+  { title: 'No-Logs Policy (无日志处理规则)', href: '/privacy#nologs', status: '严格执行 (Strictly Enforced)' },
+  { title: 'Refund Policy (退款规程保障)', href: '/terms#refund', status: '保障中 (Guaranteed)' },
+  { title: 'System Status (系统服务状态)', href: '/support#status', status: '99.9% 正常运行 (Operational)' },
+];
+---
+
+<section class="w-full bg-[#F5F5F7] py-20 md:py-28 border-b border-black/[0.08]">
+  <div class="max-w-[900px] mx-auto px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center space-y-4 mb-16">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">TRANSPARENCY & GOVERNANCE</div>
+      <h2 class="text-3xl sm:text-5xl font-semibold text-sanmao-textPrimary tracking-tight">
+        信任，来自透明。
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        拒绝虚构无法验证的数据。所有合规与法务文档备案均提供明晰的发布状态。
+      </p>
+    </div>
+
+    <!-- Editorial List (Large Row + Border Bottom, NO CARDS!) -->
+    <div class="divide-y divide-black/10 border-t border-b border-black/10">
+      {trustList.map((item) => (
+        <a 
+          href={item.href} 
+          class="group py-5 flex items-center justify-between hover:text-brand transition-colors"
+        >
+          <div class="space-y-1">
+            <span class="text-base sm:text-lg font-semibold text-sanmao-textPrimary group-hover:text-brand transition-colors">
+              {item.title}
+            </span>
+            <div class="text-xs font-mono text-sanmao-textSecondary">
+              {item.status}
+            </div>
+          </div>
+
+          <div class="text-base font-semibold text-sanmao-textPrimary group-hover:text-brand group-hover:translate-x-1 transition-all">
+            →
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>

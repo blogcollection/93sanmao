@@ -1,0 +1,97 @@
+---
+---
+
+<section class="w-full bg-[#F5F5F7] py-24 md:py-36 border-b border-black/[0.08]">
+  <div class="max-w-[1100px] mx-auto px-6">
+    
+    <!-- Section Header -->
+    <div class="max-w-[680px] mx-auto text-center space-y-4 mb-16">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">SMART ROUTING</div>
+      <h2 class="text-3xl sm:text-5xl lg:text-6xl font-semibold text-sanmao-textPrimary tracking-tight">
+        不用研究节点。<br />
+        三毛帮你选择。
+      </h2>
+      <p class="text-base sm:text-lg text-sanmao-textSecondary leading-relaxed">
+        根据实时测速与线路状态自动匹配连接路径的设计机制。
+      </p>
+    </div>
+
+    <!-- Large Auto Select UI Box -->
+    <div class="max-w-[720px] mx-auto bg-white rounded-[32px] p-8 sm:p-12 border border-black/[0.08]">
+      
+      <!-- Routing Transition Box -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-[#F5F5F7] border border-black/[0.04]">
+        
+        <!-- Current Location -->
+        <div class="text-center sm:text-left space-y-1">
+          <div class="text-xs font-medium text-sanmao-textSecondary uppercase tracking-wider">Current Location</div>
+          <div class="text-xl font-semibold text-sanmao-textPrimary flex items-center justify-center sm:justify-start gap-2">
+            <span>Malaysia</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-black/5 text-sanmao-textSecondary">源接入</span>
+          </div>
+        </div>
+
+        <!-- Arrow Divider Icon -->
+        <div class="w-10 h-10 rounded-full bg-white border border-black/10 flex items-center justify-center text-brand font-bold shadow-sm">
+          ↓
+        </div>
+
+        <!-- Recommended Location -->
+        <div class="text-center sm:text-right space-y-1">
+          <div class="text-xs font-semibold text-brand uppercase tracking-wider flex items-center justify-center sm:justify-end gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+            Recommended (Demo)
+          </div>
+          <div class="text-xl font-semibold text-sanmao-textPrimary flex items-center justify-center sm:justify-end gap-2">
+            <span>Singapore</span>
+            <span class="text-xs font-mono font-bold text-brand">28 ms</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Button (Demo UI Only - Non Functional) -->
+      <div class="mt-8 text-center space-y-2">
+        <button 
+          disabled
+          class="w-full sm:w-auto px-10 py-3.5 rounded-full bg-black/10 text-sanmao-textSecondary font-medium text-sm border border-black/5 cursor-not-allowed pointer-events-none"
+        >
+          Smart Connect (客户端 UI 演示)
+        </button>
+        <div class="text-[11px] font-mono text-sanmao-textSecondary/70">
+          UI Demonstration / 自动选路交互界面示意
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom 3 Indicators (NO CARDS - Pure Typography + Divider) -->
+    <div class="max-w-[800px] mx-auto mt-20 pt-10 border-t border-black/10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-center divide-y md:divide-y-0 md:divide-x divide-black/10">
+        
+        <!-- Metric 1 -->
+        <div class="pt-4 md:pt-0 space-y-1 px-4">
+          <div class="text-2xl font-bold text-sanmao-textPrimary tracking-tight">Latency</div>
+          <div class="text-xs font-mono text-brand">毫秒级探测概念</div>
+          <p class="text-xs text-sanmao-textSecondary">检测节点 Ping 值指标。</p>
+        </div>
+
+        <!-- Metric 2 -->
+        <div class="pt-4 md:pt-0 space-y-1 px-4">
+          <div class="text-2xl font-bold text-sanmao-textPrimary tracking-tight">Load</div>
+          <div class="text-xs font-mono text-brand">负载分流规划</div>
+          <p class="text-xs text-sanmao-textSecondary">避免单节点网络拥堵。</p>
+        </div>
+
+        <!-- Metric 3 -->
+        <div class="pt-4 md:pt-0 space-y-1 px-4">
+          <div class="text-2xl font-bold text-sanmao-textPrimary tracking-tight">Distance</div>
+          <div class="text-xs font-mono text-brand">路由距离感官</div>
+          <p class="text-xs text-sanmao-textSecondary">寻找较短的网络跳转路径。</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

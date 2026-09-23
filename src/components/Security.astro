@@ -1,0 +1,105 @@
+---
+import { securityFeatures } from '../data/features';
+---
+
+<section id="security" class="w-full bg-[#090D12] text-white py-24 md:py-36 border-b border-white/10">
+  <div class="max-w-[1200px] mx-auto px-6">
+    
+    <!-- Section Header -->
+    <div class="max-w-[640px] mx-auto text-center space-y-4 mb-20">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">安全与隐私</div>
+      <h2 class="text-4xl sm:text-6xl font-semibold text-white tracking-tight leading-tight">
+        安全。<br />
+        默认开启。
+      </h2>
+      <p class="text-base sm:text-lg text-white/70 leading-relaxed">
+        保护网络数据传输安全。
+      </p>
+    </div>
+
+    <!-- Interactive Selector Section (NO 6 CARDS GRID!) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start my-12">
+      
+      <!-- Left Column: Big Typography Selectors -->
+      <div class="lg:col-span-5 space-y-4">
+        <div id="sec-tabs" class="space-y-4 border-l-2 border-white/10 pl-6">
+          {securityFeatures.map((feat, index) => (
+            <button 
+              data-index={index}
+              class={`sec-tab-btn block w-full text-left text-3xl sm:text-5xl font-bold tracking-tight transition-all duration-300 ${
+                index === 0 ? 'text-white border-l-2 border-brand -ml-[26px] pl-6' : 'text-white/30 hover:text-white/70'
+              }`}
+            >
+              {feat.title}.
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right Column: Single Active Selected Feature Panel -->
+      <div class="lg:col-span-7">
+        <div id="sec-content-panel" class="p-8 sm:p-10 rounded-2xl bg-white/[0.03] border border-white/10 space-y-6">
+          {securityFeatures.map((feat, index) => (
+            <div 
+              data-content={index}
+              class={`sec-content-item space-y-4 ${index === 0 ? 'block' : 'hidden'}`}
+            >
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-mono text-brand font-semibold">{feat.title}</span>
+                <span class="px-2.5 py-1 rounded bg-white/10 text-white/60 font-mono text-[11px]">
+                  {feat.statusTag}
+                </span>
+              </div>
+
+              <h3 class="text-2xl font-semibold text-white">{feat.subtitle}</h3>
+
+              <p class="text-base text-white/70 leading-relaxed">
+                {feat.description}
+              </p>
+
+              <div class="pt-4 border-t border-white/10 text-xs text-white/50">
+                提示：本模块属于安全功能概念说明，具体参数标明 Pending Product Verification 待第三方审计。
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Security Footnote -->
+    <div class="mt-12 text-center text-xs text-white/40">
+      数据传输保护遵循通用网络加密协议标准。
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Tab switching logic for Desktop / Mobile selector
+  const tabBtns = document.querySelectorAll('.sec-tab-btn');
+  const contentItems = document.querySelectorAll('.sec-content-item');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetIndex = btn.getAttribute('data-index');
+
+      tabBtns.forEach(b => {
+        b.classList.remove('text-white', 'border-l-2', 'border-brand', '-ml-[26px]', 'pl-6');
+        b.classList.add('text-white/30');
+      });
+      btn.classList.remove('text-white/30');
+      btn.classList.add('text-white', 'border-l-2', 'border-brand', '-ml-[26px]', 'pl-6');
+
+      contentItems.forEach(item => {
+        if (item.getAttribute('data-content') === targetIndex) {
+          item.classList.remove('hidden');
+          item.classList.add('block');
+        } else {
+          item.classList.remove('block');
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

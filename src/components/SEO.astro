@@ -1,0 +1,127 @@
+---
+import { SITE_URL } from '../config/site';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  faqSchemaItems?: Array<{ question: string; answer: string }>;
+  breadcrumbs?: Array<{ name: string; item: string }>;
+}
+
+const {
+  title = '三毛 VPN（SANMAO）｜全球网络连接服务',
+  description = '三毛 VPN（SANMAO）提供简洁易用的全球网络连接服务。查看产品功能、网络节点、客户端下载、使用指南与套餐信息。',
+  canonical = Astro.url.pathname,
+  image = '/favicon.svg',
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  author = '三毛网络团队',
+  faqSchemaItems,
+  breadcrumbs = [
+    { name: '首页', item: '/' },
+  ],
+} = Astro.props;
+
+const siteName = '三毛 SANMAO';
+const absoluteCanonical = SITE_URL ? `${SITE_URL.replace(/\/$/, '')}${canonical}` : canonical;
+
+// JSON-LD Schemas
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Brand',
+  name: siteName,
+  alternateName: 'SANMAO VPN',
+  url: SITE_URL || undefined,
+  logo: '/favicon.svg',
+  description: description,
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteName,
+  url: SITE_URL || undefined,
+  inLanguage: 'zh-CN',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((crumb, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: crumb.name,
+    item: SITE_URL ? `${SITE_URL.replace(/\/$/, '')}${crumb.item}` : crumb.item,
+  })),
+};
+
+const articleSchema = type === 'article' ? {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  image: image,
+  author: {
+    '@type': 'Organization',
+    name: author,
+  },
+  publisher: orgSchema,
+  datePublished: publishedTime,
+  dateModified: modifiedTime || publishedTime,
+  mainEntityOfPage: absoluteCanonical,
+} : null;
+
+const faqSchema = faqSchemaItems && faqSchemaItems.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqSchemaItems.map(item => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+} : null;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<link rel="canonical" href={absoluteCanonical} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={absoluteCanonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content={siteName} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:url" content={absoluteCanonical} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+
+<!-- Structured Data Schemas -->
+<script type="application/ld+json" is:inline set:html={JSON.stringify(orgSchema)} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify(websiteSchema)} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+{articleSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />}
+{faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}

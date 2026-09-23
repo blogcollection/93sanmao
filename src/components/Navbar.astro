@@ -1,0 +1,138 @@
+---
+import { LOGIN_URL, REGISTER_URL } from '../config/site';
+---
+
+<header class="sticky top-0 z-50 w-full h-[56px] md:h-[64px] bg-white/85 backdrop-blur-xl border-b border-black/[0.06] transition-all duration-300">
+  <div class="max-w-[1200px] h-full mx-auto px-4 md:px-8 flex items-center justify-between">
+    <!-- Left: Brand Logo -->
+    <a href="/" class="flex items-center gap-2 group" aria-label="三毛 SANMAO 首页">
+      <div class="w-6 h-6 rounded-md bg-sanmao-textPrimary flex items-center justify-center text-white text-xs font-semibold tracking-tighter group-hover:bg-brand transition-colors">
+        三
+      </div>
+      <span class="text-[17px] font-semibold tracking-tight text-sanmao-textPrimary">
+        三毛 <span class="text-xs font-medium text-sanmao-textSecondary ml-0.5 tracking-wider">SANMAO</span>
+      </span>
+    </a>
+
+    <!-- Center: Desktop Nav Items -->
+    <nav class="hidden md:flex items-center gap-8 text-[14px] font-medium text-sanmao-textSecondary">
+      <a href="/vpn" class="hover:text-sanmao-textPrimary transition-colors">产品</a>
+      <a href="/servers" class="hover:text-sanmao-textPrimary transition-colors">网络</a>
+      <a href="/download" class="hover:text-sanmao-textPrimary transition-colors">下载</a>
+      <a href="/pricing" class="hover:text-sanmao-textPrimary transition-colors">价格</a>
+      <a href="/security" class="hover:text-sanmao-textPrimary transition-colors">安全</a>
+      <a href="/support" class="hover:text-sanmao-textPrimary transition-colors">帮助</a>
+    </nav>
+
+    <!-- Right: Auth & CTA -->
+    <div class="flex items-center gap-3">
+      {LOGIN_URL ? (
+        <a href={LOGIN_URL} target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block text-[14px] font-medium text-sanmao-textSecondary hover:text-sanmao-textPrimary transition-colors">
+          登录
+        </a>
+      ) : (
+        <span class="hidden sm:inline-block text-[13px] font-medium text-sanmao-textSecondary/50 bg-black/5 px-2.5 py-1 rounded cursor-not-allowed">
+          登录
+        </span>
+      )}
+
+      {REGISTER_URL ? (
+        <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full bg-sanmao-textPrimary hover:bg-brand text-white text-[13px] font-medium transition-colors">
+          立即开始
+        </a>
+      ) : (
+        <a href="/pricing" class="px-4 py-1.5 rounded-full bg-sanmao-textPrimary hover:bg-brand text-white text-[13px] font-medium transition-colors">
+          查看套餐
+        </a>
+      )}
+
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-btn" 
+        aria-label="切换导航菜单" 
+        aria-expanded="false" 
+        aria-controls="mobile-menu"
+        class="md:hidden p-1.5 text-sanmao-textPrimary focus:outline-none"
+      >
+        <svg id="menu-hamburger" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-2xl border-b border-black/[0.08] px-6 py-6 space-y-4">
+    <nav class="flex flex-col space-y-3 text-[15px] font-medium text-sanmao-textPrimary">
+      <a href="/vpn" class="py-1 border-b border-black/[0.04] mobile-nav-link">产品</a>
+      <a href="/servers" class="py-1 border-b border-black/[0.04] mobile-nav-link">网络</a>
+      <a href="/download" class="py-1 border-b border-black/[0.04] mobile-nav-link">下载</a>
+      <a href="/pricing" class="py-1 border-b border-black/[0.04] mobile-nav-link">价格</a>
+      <a href="/security" class="py-1 border-b border-black/[0.04] mobile-nav-link">安全</a>
+      <a href="/support" class="py-1 border-b border-black/[0.04] mobile-nav-link">帮助</a>
+      {LOGIN_URL ? (
+        <a href={LOGIN_URL} target="_blank" rel="noopener noreferrer" class="py-1 text-sanmao-textSecondary mobile-nav-link">登录</a>
+      ) : (
+        <span class="py-1 text-sanmao-textSecondary/50 text-xs">登录</span>
+      )}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconHamburger = document.getElementById('menu-hamburger');
+  const iconClose = document.getElementById('menu-close');
+  const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function closeMenu() {
+    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+      iconHamburger?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+    }
+  }
+
+  function openMenu() {
+    if (mobileMenu && mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.remove('hidden');
+      menuBtn?.setAttribute('aria-expanded', 'true');
+      iconHamburger?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+    }
+  }
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => closeMenu());
+    });
+
+    document.addEventListener('click', (e) => {
+      const target = e.target as Node;
+      if (!mobileMenu.contains(target) && !menuBtn.contains(target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+  }
+</script>

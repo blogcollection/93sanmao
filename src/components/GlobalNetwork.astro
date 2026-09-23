@@ -1,0 +1,98 @@
+---
+import { serverNodesConfig } from '../data/servers';
+---
+
+<section id="network" class="relative w-full bg-black text-white py-24 md:py-36 overflow-hidden">
+  <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="max-w-[640px] mx-auto text-center space-y-4 mb-16">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">GLOBAL NETWORK</div>
+      <h2 class="text-3xl sm:text-5xl font-semibold text-white tracking-tight leading-tight">
+        世界很大。<br />
+        网络不应该有距离。
+      </h2>
+      <p class="text-base sm:text-lg text-white/70 leading-relaxed">
+        针对网络拓扑寻找加速路径与中继通道。
+      </p>
+    </div>
+
+    <!-- Map Container directly in dark space (No SaaS dashboard card, no big glow, no shadow-2xl) -->
+    <div class="relative w-full border-t border-b border-white/10 py-12">
+      <!-- Top Disclaimer Banner -->
+      <div class="flex items-center justify-between pb-6 border-b border-white/10 text-xs text-white/50">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-brand animate-ping"></span>
+          <span>网络拓扑图示</span>
+        </div>
+        <div class="font-mono px-2 py-0.5 rounded bg-white/10">{serverNodesConfig.disclaimerText}</div>
+      </div>
+
+      <!-- World Map Canvas Vector -->
+      <div class="relative w-full aspect-[16/9] md:aspect-[21/9] my-6 flex items-center justify-center">
+        <!-- Minimalist Stylized Map Dots SVG -->
+        <svg class="w-full h-full text-white/15" viewBox="0 0 1000 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stylized Continent Outlines -->
+          <path d="M150 80 Q200 60 280 90 T320 180 T220 220 T140 140 Z" fill="currentColor" opacity="0.3" />
+          <path d="M280 240 Q320 260 310 340 T270 380 T250 280 Z" fill="currentColor" opacity="0.25" />
+          <path d="M450 70 Q550 50 750 80 T880 180 T780 240 T520 150 Z" fill="currentColor" opacity="0.3" />
+          <path d="M460 170 Q520 180 540 260 T480 320 T440 220 Z" fill="currentColor" opacity="0.25" />
+          <path d="M780 280 Q850 270 880 320 T820 360 T760 310 Z" fill="currentColor" opacity="0.3" />
+
+          <!-- Network Connection Lines -->
+          <path d="M 740 279 L 780 234 L 860 198 L 220 189 L 520 153" stroke="url(#line-gradient)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.4" />
+          
+          <defs>
+            <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00A88F" stop-opacity="0.8" />
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0.2" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <!-- Dynamic Hotspot Nodes overlay -->
+        {serverNodesConfig.nodes.map((node) => (
+          <div 
+            class="absolute group cursor-pointer -translate-x-1/2 -translate-y-1/2" 
+            style={`left: ${node.coordinates.x}%; top: ${node.coordinates.y}%;`}
+          >
+            <!-- Pulse Dot -->
+            <div class="relative flex items-center justify-center">
+              <span class="absolute w-4 h-4 rounded-full bg-brand/40 animate-ping"></span>
+              <span class="w-2 h-2 rounded-full bg-brand border border-white"></span>
+            </div>
+
+            <!-- Hover Tooltip Popup -->
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:flex flex-col items-center z-30 min-w-[130px]">
+              <div class="bg-black border border-white/20 text-white px-3 py-2 rounded-lg text-xs shadow-xl space-y-0.5">
+                <div class="font-semibold flex items-center gap-1.5">
+                  <span>{node.city}</span>
+                  <span class="text-[10px] text-white/50">({node.country})</span>
+                </div>
+                <div class="flex items-center justify-between text-[11px] text-white/70 pt-1 border-t border-white/10">
+                  <span>示例延迟:</span>
+                  <span class="font-mono font-semibold text-brand">{node.latencyDemo} ms</span>
+                </div>
+              </div>
+              <div class="w-2 h-2 bg-black rotate-45 -mt-1 border-r border-b border-white/20"></div>
+            </div>
+
+            <!-- Always-on Label -->
+            <div class="mt-1 text-[11px] font-medium text-white/70 group-hover:text-brand transition-colors text-center whitespace-nowrap">
+              {node.city}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Section Footer Link -->
+      <div class="pt-6 border-t border-white/10 flex items-center justify-between text-xs">
+        <span class="text-white/50">所有节点列表与延迟数据均属于演示可视化 (Demo Visualization)</span>
+        <a href="/servers" class="font-medium text-brand hover:text-white transition-colors flex items-center gap-1">
+          查看网络节点列表 &gt;
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

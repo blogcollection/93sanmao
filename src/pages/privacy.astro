@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SUPPORT_EMAIL } from '../config/site';
+---
+
+<BaseLayout 
+  title="隐私政策与无日志处理规则｜三毛 VPN"
+  description="三毛 VPN 隐私保护原则、无日志（No-Logs）处理规则与数据安全防护承诺。"
+>
+  <!-- Header -->
+  <div class="bg-[#F5F5F7] py-16 md:py-24 border-b border-black/10">
+    <div class="max-w-[900px] mx-auto px-6 text-center space-y-4">
+      <div class="text-xs font-semibold tracking-widest text-brand uppercase">PRIVACY & NO-LOGS POLICY</div>
+      <h1 class="text-4xl sm:text-6xl font-bold text-sanmao-textPrimary tracking-tight">
+        隐私政策与无日志处理规则
+      </h1>
+      <p class="text-base sm:text-lg text-sanmao-textSecondary max-w-[640px] mx-auto">
+        保护您的网络隐私与传输安全是三毛 VPN 的核心原则。
+      </p>
+      <div class="text-xs font-mono text-sanmao-textSecondary pt-2">
+        最近更新生效日期：2026 年 9 月
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="max-w-[800px] mx-auto px-6 py-16 md:py-24 space-y-12">
+    
+    <!-- Section 1: Core Commitment -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        1. 隐私保护核心宗旨
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        三毛 VPN 致力于为用户提供私密、安全且自由的网络连接体验。我们恪守数据最小化收集原则，绝不利用用户的个人数据进行商业变现或不正当监控。
+      </p>
+    </section>
+
+    <!-- Section 2: No-Logs Policy (#nologs) -->
+    <section id="nologs" class="space-y-4 scroll-mt-24">
+      <div class="p-6 rounded-2xl bg-brand-light border border-brand/20 space-y-3">
+        <div class="text-xs font-semibold tracking-widest text-brand uppercase">NO-LOGS GUARANTEE</div>
+        <h2 class="text-2xl font-bold text-sanmao-textPrimary">
+          2. 无日志（No-Logs）处理规则
+        </h2>
+        <p class="text-sm sm:text-base text-sanmao-textSecondary leading-relaxed">
+          我们严格执行无日志策略。当您连接三毛 VPN 网络时，我们<strong>绝不记录、存储或分析</strong>以下任何信息：
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-sm text-sanmao-textSecondary">
+          <li><strong>浏览历史与访问记录</strong>：您访问的网址、网页内容以及在网站上的任何操作；</li>
+          <li><strong>传输数据内容</strong>：通过加密隧道传输的任何文本、文件、图片或视频；</li>
+          <li><strong>DNS 查询记录</strong>：您的域名解析请求与目标服务器地址；</li>
+          <li><strong>原始 IP 地址与出口 IP 匹配</strong>：您的真实物理网络 IP 与分配给您的代理节点 IP 的对应关系；</li>
+          <li><strong>会话连接时间戳与流量细节</strong>：具体的连接发起精确时间及单次会话流量特征。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 3: Minimally Collected Data -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        3. 我们收集的最少必要数据
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        为了保障服务的正常运行、账号认证及套餐订阅维系，我们仅收集并保留以下最低程度的必要信息：
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-base text-sanmao-textSecondary">
+        <li><strong>账号注册邮箱</strong>：用于接收登录验证码、重置密码及重要服务通知；</li>
+        <li><strong>订阅套餐状态</strong>：记录您的有效套餐类型（如月付、年付）与到期时间，用于客户端鉴权；</li>
+        <li><strong>匿名化的故障诊断数据（可选择）</strong>：在客户端发生崩溃时，仅收集不包含个人身份信息的程序错误堆栈，用于改进软件稳定性。</li>
+      </ul>
+    </section>
+
+    <!-- Section 4: Data Security -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        4. 数据加密与安全防护
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        三毛 VPN 采用行业标准的加密传输协议与高强度隧道技术。所有通过我们节点传输的数据均在设备端完成实时加密，能有效抵御公共 Wi-Fi 环境下的数据监听、中间人攻击与数据篡改。
+      </p>
+    </section>
+
+    <!-- Section 5: Data Sharing & Third Parties -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        5. 第三方共享与法律请求
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        三毛 VPN 承诺<strong>绝不向任何第三方出租、出售或分享</strong>用户的账号数据。由于我们不存储任何用户上网活动日志与历史连接记录，即使收到外部查询请求，我们也无法提供任何不存在的数据。
+      </p>
+    </section>
+
+    <!-- Section 6: User Rights -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-sanmao-textPrimary pb-2 border-b border-black/10">
+        6. 用户权利与账号彻底注销
+      </h2>
+      <p class="text-base text-sanmao-textSecondary leading-relaxed">
+        您拥有对个人账号数据的完整控制权。如果您决定停止使用三毛 VPN 服务，可以随时申请彻底注销账号。注销成功后，我们将在数据库中完全抹除您的注册邮箱与订阅记录。
+      </p>
+    </section>
+
+    <!-- Section 7: Contact Us -->
+    <section class="space-y-4 pt-4 border-t border-black/10">
+      <h2 class="text-xl font-bold text-sanmao-textPrimary">
+        联系隐私团队
+      </h2>
+      <p class="text-sm text-sanmao-textSecondary leading-relaxed">
+        如果您对我们的隐私政策或数据处理有任何疑问、建议或退款咨询，请随时联系我们的支持团队。
+      </p>
+      {SUPPORT_EMAIL && (
+        <div class="pt-2">
+          <a href={`mailto:${SUPPORT_EMAIL}`} class="inline-block px-6 py-3 rounded-full bg-sanmao-textPrimary text-white text-xs font-semibold hover:bg-brand transition-colors">
+            发送邮件 ({SUPPORT_EMAIL})
+          </a>
+        </div>
+      )}
+    </section>
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Metrics from '../components/Metrics.astro';
+import GlobalNetwork from '../components/GlobalNetwork.astro';
+import Speed from '../components/Speed.astro';
+import SmartConnection from '../components/SmartConnection.astro';
+import Devices from '../components/Devices.astro';
+import Security from '../components/Security.astro';
+import UseCases from '../components/UseCases.astro';
+import Performance from '../components/Performance.astro';
+import Pricing from '../components/Pricing.astro';
+import Trust from '../components/Trust.astro';
+import FAQ from '../components/FAQ.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import { faqList } from '../data/faq';
+
+const faqSchemaItems = faqList.map(item => ({
+  question: item.question,
+  answer: item.answer,
+}));
+---
+
+<BaseLayout 
+  title="三毛 VPN（SANMAO）｜全球网络连接服务"
+  description="三毛 VPN（SANMAO）提供简洁易用的全球网络连接服务。查看产品功能、网络节点、客户端下载、使用指南与套餐信息。"
+  faqSchemaItems={faqSchemaItems}
+>
+  <Hero />
+  <Metrics />
+  <GlobalNetwork />
+  <Speed />
+  <SmartConnection />
+  <Devices />
+  <Security />
+  <UseCases />
+  <Performance />
+  <Pricing />
+  <Trust />
+  <FAQ />
+  <FinalCTA />
+</BaseLayout>
